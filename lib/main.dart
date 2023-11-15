@@ -3,9 +3,14 @@ import 'package:better_workout/screens/home.dart';
 import 'package:better_workout/screens/login.dart';
 import 'package:better_workout/screens/workouts.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const BetterWorkoutApp());
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 }
 
 class BetterWorkoutApp extends StatelessWidget {
