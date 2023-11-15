@@ -1,4 +1,4 @@
 .DEFAULT_GOAL := dev
 
 dev:
-	flutter run --hot
+	flutter run --hot --dart-define-from-file=.env.json

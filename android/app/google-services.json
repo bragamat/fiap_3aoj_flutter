@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1022636111909",
+    "project_id": "better-workout-01abc",
+    "storage_bucket": "better-workout-01abc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022636111909:android:71c2f413df1c06c5d6e7cc",
+        "android_client_info": {
+          "package_name": "com.betterworkout.better_workout"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7ihm9mHAGbwKL4X7JzQJnm4JzVaiKWJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
