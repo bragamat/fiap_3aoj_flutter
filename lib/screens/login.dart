@@ -23,34 +23,54 @@ class _LoginPageState extends State<LoginPage> {
         key: _formKey,
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextField(
-                decoration: InputDecoration(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+              child: TextFormField(
+                validator: (val) {
+                  if (val == null || val.isEmpty) {
+                    return 'Please enter a valid email';
+                  }
+
+                  return null;
+                },
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email *',
                     hintText: "Enter your email"),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: TextField(
-                decoration: InputDecoration(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+              child: TextFormField(
+                validator: (val) {
+                  if (val == null || val.isEmpty) {
+                    return 'Please enter your password';
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password *',
                     hintText: "Enter your password"),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop(
-                    MaterialPageRoute(
-                      settings: const RouteSettings(name: 'HomePage'),
-                      builder: (context) => const HomePage(),
-                    ),
-                  );
+                  if (_formKey.currentState!.validate()) {
+                    // If the form is valid, display a snackbar. In the real world,
+                    // you'd often call a server or save the information in a database.
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Processing Data')),
+                    );
+                    Navigator.of(context).pop(
+                      MaterialPageRoute(
+                        settings: const RouteSettings(name: 'HomePage'),
+                        builder: (context) => const HomePage(),
+                      ),
+                    );
+                  }
                 },
                 child: const Text('Login'),
               ),
