@@ -16,6 +16,7 @@ class BetterWorkoutApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Better Workout',
+      initialRoute: LoginPage.routeName,
       routes: {
         HomePage.routeName: (_) => const HomePage(),
         LoginPage.routeName: (_) => const LoginPage(),

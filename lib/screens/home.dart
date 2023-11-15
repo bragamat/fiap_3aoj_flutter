@@ -2,7 +2,7 @@ import 'package:better_workout/screens/workouts.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  static const routeName = "/";
+  static const routeName = "HomePage";
   const HomePage({super.key});
 
   @override
