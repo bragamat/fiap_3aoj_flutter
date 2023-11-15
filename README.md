@@ -1,8 +1,18 @@
-# better_workout
-
-A new Flutter project.
+# BetterWorkout
 
 ## Getting Started
+
+```bash
+$ make
+```
+## Specifications
+- [x] Screens Navigation
+- [x] StatelessWidget
+- [x] StatefullWidget
+- [x] Secrets Management
+- [ ] User Interaction
+- [ ] Form manipulation
+- [ ] Firebase Integration
 
 This project is a starting point for a Flutter application.
 
