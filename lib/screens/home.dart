@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                 );
               },
               child: const Text('See Workouts'),
-            ),
+            )
           ],
         ),
       ),

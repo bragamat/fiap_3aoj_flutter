@@ -41,7 +41,6 @@ class _LoginPageState extends State<LoginPage> {
                   if (val == null || val.isEmpty) {
                     return 'Please enter a valid email';
                   }
-
                   return null;
                 },
                 decoration: const InputDecoration(
@@ -75,12 +74,8 @@ class _LoginPageState extends State<LoginPage> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Processing Data')),
                     );
-                    Navigator.of(context).pop(
-                      MaterialPageRoute(
-                        settings: const RouteSettings(name: 'HomePage'),
-                        builder: (context) => const HomePage(),
-                      ),
-                    );
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        HomePage.routeName, (Route<dynamic> route) => false);
                   }
                 },
                 child: const Text('Login'),
