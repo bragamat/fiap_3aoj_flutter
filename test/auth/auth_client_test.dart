@@ -1,31 +1,8 @@
+import 'package:better_workout/betterworkout/auth/auth_with_password.dart';
 import 'package:faker/faker.dart';
 import 'package:mockito/mockito.dart';
 
 import 'package:flutter_test/flutter_test.dart';
-
-class AuthClient {
-  final ApiServer authServer;
-
-  AuthClient({required this.authServer});
-
-  Future<void> authWithPassword({
-    required String email,
-    required String password,
-  }) async {
-    await authServer.signInWithEmailAndPassword(
-      email,
-      password,
-    );
-  }
-}
-
-abstract class ApiServer {
-  // final apiClient = FirebaseAuth.instance;
-  Future<void>? signInWithEmailAndPassword(
-    String email,
-    String password,
-  );
-}
 
 class AuthPlatformSpy extends Mock implements ApiServer {}
 
