@@ -72,28 +72,30 @@ class _LoginPageState extends State<LoginPage> {
                   if (_formKey.currentState!.validate()) {
                     // If the form is valid, display a snackbar. In the real world,
                     // you'd often call a server or save the information in a database.
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Processing Data')),
-                    );
                     final auth = AuthClient(authServer: FirebaseApiConnector());
-
+                    final navigator = Navigator.of(context);
+                    final notifier = ScaffoldMessenger.of(context);
                     try {
                       await auth.authWithPassword(
                         email: _emailController.text,
                         password: _passwordController.text,
                       );
-                      Navigator.of(context).pushNamedAndRemoveUntil(
+                      navigator.pushNamedAndRemoveUntil(
                         HomePage.routeName,
                         (Route<dynamic> route) => false,
                       );
                     } on FirebaseAuthException catch (e) {
-                      if (e.code == 'user-not-found') {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('User not found')),
+                      if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
+                        notifier.showSnackBar(
+                          const SnackBar(
+                            content: Text('Invalid Credentials'),
+                          ),
                         );
-                      } else if (e.code == 'wrong-password') {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Invalid Password')),
+                      } else {
+                        notifier.showSnackBar(
+                          const SnackBar(
+                            content: Text('Try again later - Invalid API KEY'),
+                          ),
                         );
                       }
                     }
