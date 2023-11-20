@@ -52,6 +52,10 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
               child: TextFormField(
+                obscureText: true,
+                obscuringCharacter: "*",
+                enableSuggestions: false,
+                autocorrect: false,
                 controller: _passwordController,
                 validator: (val) {
                   if (val == null || val.isEmpty) {
