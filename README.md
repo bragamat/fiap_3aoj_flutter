@@ -30,7 +30,43 @@ As a good practice we should never leak our secrets in our code base, thus
 making us setting Environment Variables to make our firebase integration
 available;
 Flutter makes it easy to inject env vars from a given file or direct from the
-CLI through `$ flutter run --dart-define-from-file=.env.json`;
+CLI through `$ flutter run --dart-define-from-file=.env.json` and then we can
+use it on our code like the example bellow:
+
+```json FILE:.env.json
+{
+  "ANDROID_API_KEY": "<SOME_ANDROID_API_KEY>",
+  "ANDROID_APP_ID": "<SOME_ANDROID_APP_ID>",
+  "ANDROID_MESSAGING_SENDER_ID": "<SOME_ANDROID_MESSAGING_SENDER_ID>",
+  "ANDROID_PROJECT_ID": "<SOME_ANDROID_PROJECT_ID>",
+  "ANDROID_STORAGE_BUCKET": "<SOME_ANDROID_STORAGE_BUCKET>",
+  "IOS_API_KEY": "<SOME_IOS_API_KEY>",
+  "IOS_APP_ID": "<SOME_IOS_APP_KEY>",
+  "IOS_MESSAGING_SENDER_ID": "<SOME_IOS_MESSAGING_SENDER_ID>",
+  "IOS_PROJECT_ID": "<SOME_IOS_PROJECT_ID>",
+  "IOS_STORAGE_BUCKET": "<SOME_IOS_STORAGE_BUCKET>",
+  "IOS_BUNDLE_ID": "<SOME_IOS_BUNDLE_ID>"
+}
+```
+
+```dart
+ static const FirebaseOptions android = FirebaseOptions(
+    apiKey: String.fromEnvironment('ANDROID_API_KEY'),
+    appId: String.fromEnvironment('ANDROID_APP_ID'),
+    messagingSenderId: String.fromEnvironment('ANDROID_MESSAGING_SENDER_ID'),
+    projectId: String.fromEnvironment('ANDROID_PROJECT_ID'),
+    storageBucket: String.fromEnvironment('ANDROID_STORAGE_BUCKET'),
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: String.fromEnvironment('IOS_API_KEY'),
+    appId: String.fromEnvironment('IOS_APP_ID'),
+    messagingSenderId: String.fromEnvironment('IOS_MESSAGING_SENDER_ID'),
+    projectId: String.fromEnvironment('IOS_PROJECT_ID'),
+    storageBucket: String.fromEnvironment('IOS_STORAGE_BUCKET'),
+    iosBundleId: String.fromEnvironment('IOS_BUNDLE_ID'),
+  );
+```
 
 This project is a starting point for a Flutter application.
 
