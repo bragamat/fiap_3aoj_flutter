@@ -8,8 +8,8 @@ import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const BetterWorkoutApp());
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(const BetterWorkoutApp());
 }
 
 class BetterWorkoutApp extends StatelessWidget {

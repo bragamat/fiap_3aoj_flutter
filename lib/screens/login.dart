@@ -1,6 +1,7 @@
 import 'package:better_workout/betterworkout/auth/client.dart';
 import 'package:better_workout/screens/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -23,8 +24,21 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
   }
 
+  checkChallengerLoggedIn(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    await Firebase.initializeApp();
+
+    if (FirebaseAuth.instance.currentUser != null) {
+      navigator.pushNamedAndRemoveUntil(
+        HomePage.routeName,
+        (Route<dynamic> route) => false,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    checkChallengerLoggedIn(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Enter'),
