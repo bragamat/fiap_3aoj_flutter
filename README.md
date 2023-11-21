@@ -86,7 +86,9 @@ to the home screen in some weird way
 ---
 
 ## 3. Firebase Integration 👑
-We used firebase auth integration;
+We used firebase ecosystem to authenticate and manage our users; Firebase Auth
+- Firebase Core;
+- Firebase Auth;
 
 ---
 
