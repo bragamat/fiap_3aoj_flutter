@@ -78,10 +78,22 @@ use it on our code like the example bellow:
 
 ## 2. Protected Home Screen ❗
 
+In order to access the Home Screen, a challenger must be signed in! We added a
+callback verification at the build method so we navigate them back to the login
+page popping the whole stack so they can not press the back button and get back
+to the home screen in some weird way
+
 ---
 
 ## 3. Firebase Integration 👑
+We used firebase auth integration;
 
 ---
 
-## 4. SQFlite Cache 🪶
+## 4. Testing
+We used a few libraries to run our tests:
+- Mockito - To help us mock ous System Under test;
+- Faker - To help us create fake data so our tests output can make more sense;
+- Test - Defaults flutter testing library;
+
+## 5. SQFlite Cache 🪶 -- TODO:
