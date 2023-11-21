@@ -1,15 +1,15 @@
-import 'package:better_workout/betterworkout/auth/auth_with_password.dart';
+import 'package:better_workout/betterworkout/auth/client.dart';
 import 'package:faker/faker.dart';
 import 'package:mockito/mockito.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 
-class AuthPlatformSpy extends Mock implements ApiServer {}
+class AuthPlatformSpy extends Mock implements FirebaseApiConnector {}
 
 void main() {
   String email;
   String password;
-  ApiServer apiClient;
+  FirebaseApiConnector apiClient;
 
   setUp(() {
     email = faker.internet.email();
