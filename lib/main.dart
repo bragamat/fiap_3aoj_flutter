@@ -1,6 +1,7 @@
 import 'package:better_workout/screens/config.dart';
 import 'package:better_workout/screens/home.dart';
 import 'package:better_workout/screens/login.dart';
+import 'package:better_workout/screens/new_workout.dart';
 import 'package:better_workout/screens/workouts.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,6 +26,7 @@ class BetterWorkoutApp extends StatelessWidget {
         HomePage.routeName: (_) => const HomePage(),
         LoginPage.routeName: (_) => const LoginPage(),
         WorkoutsPage.routeName: (_) => const WorkoutsPage(),
+        NewWorkoutPage.routeName: (_) => const NewWorkoutPage(),
         ConfigurationPage.routeName: (_) => const ConfigurationPage(),
       },
     );
