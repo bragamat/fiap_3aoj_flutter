@@ -1,4 +1,12 @@
 # BetterWorkout
+BetterWorkout is being developed in order to help you improve the most out of
+your workout routines. Studies have shown that, in order to improve our training
+sessions, we must periodize the cadence of each muscle group's stimuli keeping
+track of intensity.
+
+When you signup for BetterWorkout, you're called "Challenger". Each challenger
+can have 10 workout plans at most and keep track of each workout plan
+individually throughout its periodization.
 
 ## Secrets
 Given that we use env vars to run our app integration with Firebase, make sure
