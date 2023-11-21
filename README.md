@@ -1,4 +1,107 @@
 # BetterWorkout
+O BetterWorkout está sendo desenvolvido para ajudá-lo a melhorar ao máximo suas rotinas de treino. Estudos mostraram que, para melhorar nossas sessões de treinamento, devemos periodizar a cadência dos estímulos de cada grupo muscular, mantendo o controle da intensidade.
+
+Quando você se inscreve no BetterWorkout, é chamado de "Desafiador". Cada desafiador pode ter no máximo 10 planos de treino e acompanhar cada plano de treino individualmente ao longo de sua periodização.
+
+## Segredos
+Dado que usamos variáveis de ambiente para executar nossa integração de aplicativo com o Firebase, certifique-se de obter todos os segredos necessários em `.env.example` com alguém da nossa equipe!
+
+## Começando
+
+```bash
+$ flutter pub get
+```
+
+```bash
+$ make
+```
+## Especificações
+- [x] Navegação de Telas
+- [x] StatelessWidget
+- [x] StatefullWidget
+- [x] Gerenciamento de Segredos
+- [x] Interação do Usuário
+- [x] Manipulação de Formulários
+- [x] Integração com Firebase
+
+---
+
+## 1. Gerenciamento de Segredos 🤫
+Como uma boa prática, nunca devemos vazar nossos segredos na base de código, assim
+nos fazendo configurar Variáveis de Ambiente para tornar nossa integração com o firebase
+disponível;
+O Flutter facilita a injeção de variáveis de ambiente a partir de um arquivo dado ou diretamente do
+CLI através de `$ flutter run --dart-define-from-file=.env.json` e então podemos
+usá-lo em nosso código como no exemplo abaixo:
+
+```json FILE:.env.json
+{
+  "ANDROID_API_KEY": "<ALGUMA_ANDROID_API_KEY>",
+  "ANDROID_APP_ID": "<ALGUMA_ANDROID_APP_ID>",
+  "ANDROID_MESSAGING_SENDER_ID": "<ALGUMA_ANDROID_MESSAGING_SENDER_ID>",
+  "ANDROID_PROJECT_ID": "<ALGUMA_ANDROID_PROJECT_ID>",
+  "ANDROID_STORAGE_BUCKET": "<ALGUMA_ANDROID_STORAGE_BUCKET>",
+  "IOS_API_KEY": "<ALGUMA_IOS_API_KEY>",
+  "IOS_APP_ID": "<ALGUMA_IOS_APP_KEY>",
+  "IOS_MESSAGING_SENDER_ID": "<ALGUMA_IOS_MESSAGING_SENDER_ID>",
+  "IOS_PROJECT_ID": "<ALGUMA_IOS_PROJECT_ID>",
+  "IOS_STORAGE_BUCKET": "<ALGUMA_IOS_STORAGE_BUCKET>",
+  "IOS_BUNDLE_ID": "<ALGUMA_IOS_BUNDLE_ID>"
+}
+```
+
+```dart
+ static const FirebaseOptions android = FirebaseOptions(
+    apiKey: String.fromEnvironment('ANDROID_API_KEY'),
+    appId: String.fromEnvironment('ANDROID_APP_ID'),
+    messagingSenderId: String.fromEnvironment('ANDROID_MESSAGING_SENDER_ID'),
+    projectId: String.fromEnvironment('ANDROID_PROJECT_ID'),
+    storageBucket: String.fromEnvironment('ANDROID_STORAGE_BUCKET'),
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: String.fromEnvironment('IOS_API_KEY'),
+    appId: String.fromEnvironment('IOS_APP_ID'),
+    messagingSenderId: String.fromEnvironment('IOS_MESSAGING_SENDER_ID'),
+    projectId: String.fromEnvironment('IOS_PROJECT_ID'),
+    storageBucket: String.fromEnvironment('IOS_STORAGE_BUCKET'),
+    iosBundleId: String.fromEnvironment('IOS_BUNDLE_ID'),
+  );
+```
+---
+
+## 2. Tela Inicial Protegida ❗
+
+Para acessar a Tela Inicial, um desafiador deve estar logado! Adicionamos uma
+verificação de retorno de chamada no método de construção para que possamos navegá-los de volta à página de login, fechando toda a pilha para que eles não possam pressionar o botão de voltar e retornar à tela inicial de alguma forma estranha.
+
+---
+
+## 3. Integração com Firebase 👑
+Usamos o ecossistema firebase para autenticar e gerenciar nossos usuários; Firebase Auth
+- Firebase Core;
+- Firebase Auth;
+
+---
+
+## 4. Testes
+Usamos algumas bibliotecas para executar nossos testes:
+- Mockito - Para nos ajudar a simular nosso Sistema Sob Teste;
+- Faker - Para nos ajudar a criar dados falsos para que a saída de nossos testes faça mais sentido;
+- Test - Biblioteca padrão de testes do flutter;
+
+## 5. Cache SQFlite 🪶 -- A FAZER:
+
+---
+
+Se precisar de mais alguma coisa, estou à disposição! 🌟📝
+
+
+---
+---
+[lang: EN]
+
+# BetterWorkout
 BetterWorkout is being developed in order to help you improve the most out of
 your workout routines. Studies have shown that, in order to improve our training
 sessions, we must periodize the cadence of each muscle group's stimuli keeping
